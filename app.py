@@ -24,7 +24,7 @@ def load_model():
 model, features_used = load_model()
 
 # --- Interface do Usuário ---
-st.title("Estimativa da Velocidade da onda de Pulso utilizando IA")
+st.markdown("<h1 style='text-align: center;'>Estimativa da Velocidade da onda de Pulso utilizando IA</h1>", unsafe_allow_html=True)
 st.write("Insira os dados abaixo para calcular o valor estimado.")
 
 if model and features_used:
