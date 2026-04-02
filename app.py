@@ -25,7 +25,11 @@ model, features_used = load_model()
 
 # --- Interface do Usuário ---
 st.markdown("<h1 style='text-align: center;'>Estimativa da Velocidade da onda de Pulso utilizando IA</h1>", unsafe_allow_html=True)
-st.write("Insira os dados abaixo para calcular o valor estimado.")
+# --- Subtítulo Centralizado e Maior ---
+st.markdown("<p style='text-align: center; font-size: 20px; font-weight: 500;'>Insira os dados abaixo para calcular o valor estimado.</p>", unsafe_allow_html=True)
+# --- Linha de Alerta em Vermelho ---
+st.markdown("<p style='text-align: center; color: red; font-size: 16px;'>⚠️ Sistema para testes</p>", unsafe_allow_html=True)
+
 
 if model and features_used:
     # Criando colunas para o formulário não ficar muito longo
