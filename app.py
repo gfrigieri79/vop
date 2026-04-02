@@ -24,7 +24,7 @@ st.markdown("""
 def load_models():
     # Caminhos dos arquivos (Certifique-se que o nome do arquivo SAGE está correto aqui)
     path_vop = 'best_rf_model_medpwv.joblib'
-    path_sage = 'best_rf_model.joblib' # <--- Ajuste o nome se necessário
+    path_sage = 'best_rf_model.joblib' 
     
     models = {}
     
@@ -47,9 +47,9 @@ all_models = load_models()
 
 # --- 4. Barra Lateral (Sidebar) ---
 with st.sidebar:
-    st.markdown("<h2 style='text-align: center; color: #007BFF;'>aiVOP & SAGE</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: center; color: #007BFF;'>VOP & SAGE</h2>", unsafe_allow_html=True)
     st.markdown("---")
-    st.write("Este sistema utiliza IA para estimar a Velocidade da Onda de Pulso (MedPwv) e o escore SAGE.")
+    st.write("Este sistema utiliza IA para estimar a Velocidade da Onda de Pulso (VOP) e o escore SAGE.")
     st.markdown("---")
     st.markdown("<p style='text-align: center; color: #DC3545; font-size: 14px; font-weight: bold;'>⚠️ SISTEMA PARA TESTES</p>", unsafe_allow_html=True)
 
@@ -74,7 +74,7 @@ if 'vop' in all_models:
                 user_inputs[feature] = target_col.number_input(f"{feature}", value=None, placeholder="0.00", min_value=0.0)
 
             st.markdown("<br>", unsafe_allow_html=True)
-            submit_button = st.form_submit_button("Gerar Análise Completa")
+            submit_button = st.form_submit_button("Gerar Análise")
 
         if submit_button:
             if any(v is None for v in user_inputs.values()):
