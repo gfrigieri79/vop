@@ -110,9 +110,10 @@ if 'vop' in all_models:
                 # --- CARD SAGE ---
                 with res_col2:
                     if pred_sage is not None:
-                        # Lógica de cor para SAGE (exemplo: alerta se > 8, ajuste conforme sua regra)
-                        s_cor = "#D32F2F" if pred_sage >= 8 else "#007BFF"
-                        s_bg = "#FFE6E6" if pred_sage >= 8 else "#E7F3FF"
+                        # Lógica de cor para SAGE: Vermelho se >= 8, Verde se < 8
+                        s_cor = "#D32F2F" if pred_sage >= 8 else "#2E7D32"
+                        s_bg = "#FFE6E6" if pred_sage >= 8 else "#E8F5E9"
+                        
                         st.markdown(f"""
                             <div style="background-color: {s_bg}; padding: 20px; border-radius: 10px; border: 2px solid {s_cor}; text-align: center;">
                                 <h4 style="color: {s_cor}; margin: 0;">SAGE Estimado</h4>
@@ -120,11 +121,6 @@ if 'vop' in all_models:
                                 <p style="color: {s_cor}; font-size: 12px;">Escore Preditivo</p>
                             </div>
                         """, unsafe_allow_html=True)
-
-                st.markdown("<p style='color: #6C757D; font-size: 11px; text-align: center; margin-top: 15px;'>Modelos baseados em Random Forest. Uso exclusivo para pesquisa.</p>", unsafe_allow_html=True)
-
-                with st.expander("🔬 Detalhes técnicos dos dados de entrada"):
-                    st.dataframe(user_df, use_container_width=True)
 
 
 # import streamlit as st
