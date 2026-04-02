@@ -5,7 +5,7 @@ import os
 
 # --- 1. Configuração da Página e Título Centralizado no Navegador ---
 st.set_page_config(
-    page_title="MedPwv Estimator | IAEnf", 
+    page_title="VOP Estimator", 
     page_icon="🔬", 
     layout="wide" # Usa a largura total da tela, fica melhor em desktops
 )
@@ -65,7 +65,7 @@ model, features_used = load_model()
 # Organizamos as informações institucionais aqui
 # ==========================================
 with st.sidebar:
-    st.markdown("<h2 style='text-align: center; color: #007BFF;'>IAEnf</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: center; color: #007BFF;'>aiVOP</h2>", unsafe_allow_html=True)
     # DICA: Você pode colocar o logo da brain4care aqui se tiver o link da imagem:
     # st.image("link_do_seu_logo.png", use_column_width=True)
     
