@@ -24,7 +24,7 @@ def load_model():
 model, features_used = load_model()
 
 # --- Interface do Usuário ---
-st.title("✨ Resultado da Estimativa de MedPwv")
+st.title("Estimativa da Velocidade da onda de Pulso utilizando IA")
 st.write("Insira os dados abaixo para calcular o valor estimado.")
 
 if model and features_used:
