@@ -24,7 +24,7 @@ st.markdown("""
 def load_models():
     # Caminhos dos arquivos (Certifique-se que o nome do arquivo SAGE está correto aqui)
     path_vop = 'best_rf_model_medpwv.joblib'
-    path_sage = 'best_rf_model_sage.joblib' # <--- Ajuste o nome se necessário
+    path_sage = 'best_rf_model.joblib' # <--- Ajuste o nome se necessário
     
     models = {}
     
