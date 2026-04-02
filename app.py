@@ -40,7 +40,7 @@ if model and features_used:
         for i, feature in enumerate(features_used):
             # Alterna entre coluna 1 e 2
             target_col = col1 if i % 2 == 0 else col2
-            user_inputs[feature] = target_col.number_input(f"Valor para {feature}", value=0.0)
+            user_inputs[feature] = target_col.number_input(f"Valor para {feature}", value=None, placeholder="Digite o valor...")
 
         submit_button = st.form_submit_button("Calcular Estimativa")
 
