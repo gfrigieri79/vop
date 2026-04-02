@@ -116,18 +116,45 @@ if model and features_used:
 
         # --- Lógica de Predição ---
         if submit_button:
-            # Verifica se todos os campos foram preenchidos (já que value=None)
+            # Verifica se todos os campos foram preenchidos
             if any(v is None for v in user_inputs.values()):
                 st.warning("⚠️ Por favor, preencha todos os campos antes de calcular.")
             else:
                 user_df = pd.DataFrame([user_inputs])
-                prediction = model.predict(user_df)
+                prediction = model.predict(user_df)[0] # Pegamos o valor numérico direto
 
-                # Resultado Estilizado com Sucesso
                 st.markdown("---")
-                st.balloons() # Efeito visual de comemoração
-                st.success(f"## Valor estimado de MedPwv: **{prediction[0]:.2f}**")
-                st.markdown("<p style='color: #6C757D; font-size: 12px;'>Estimativa gerada por modelo Random Forest validado internamente.</p>", unsafe_allow_html=True)
+                
+                # --- Lógica de Alerta Condicional ---
+                if prediction > 10:
+                    # Estilo Vermelho para Alerta (Valor > 10)
+                    cor_fundo = "#FFE6E6"  # Vermelho bem claro
+                    cor_texto = "#D32F2F"  # Vermelho forte (caracteres)
+                    border_color = "#D32F2F"
+                else:
+                    # Estilo Verde para Normalidade (Valor <= 10)
+                    cor_fundo = "#E8F5E9"  # Verde bem claro
+                    cor_texto = "#2E7D32"  # Verde forte (caracteres)
+                    border_color = "#2E7D32"
+
+                # Exibição do Resultado Estilizado
+                st.markdown(f"""
+                    <div style="
+                        background-color: {cor_fundo}; 
+                        padding: 20px; 
+                        border-radius: 10px; 
+                        border: 2px solid {border_color};
+                        text-align: center;
+                        ">
+                        <h2 style="color: {cor_texto}; margin: 0;">Valor estimado de MedPwv:</h2>
+                        <h1 style="color: {cor_texto}; font-size: 48px; margin: 10px 0;">{prediction:.2f}</h1>
+                        <p style="color: {cor_texto}; font-size: 14px; margin: 0;">
+                            {"⚠️ ATENÇÃO: Valor acima do limite de referência." if prediction > 10 else "Dentro dos padrões esperados."}
+                        </p>
+                    </div>
+                """, unsafe_allow_html=True)
+
+                st.markdown("<p style='color: #6C757D; font-size: 12px; text-align: center; margin-top: 10px;'>Estimativa gerada por modelo Random Forest validado internamente.</p>", unsafe_allow_html=True)
 
                 with st.expander("🔬 Ver detalhes técnicos da entrada"):
                     st.dataframe(user_df, use_container_width=True)
