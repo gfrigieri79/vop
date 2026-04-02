@@ -101,7 +101,7 @@ if 'vop' in all_models:
                     v_bg = "#FFE6E6" if pred_vop > 10 else "#E8F5E9"
                     st.markdown(f"""
                         <div style="background-color: {v_bg}; padding: 20px; border-radius: 10px; border: 2px solid {v_cor}; text-align: center;">
-                            <h4 style="color: {v_cor}; margin: 0;">MedPwv</h4>
+                            <h4 style="color: {v_cor}; margin: 0;">eVOP</h4>
                             <h1 style="color: {v_cor}; margin: 10px 0;">{pred_vop:.2f}</h1>
                             <p style="color: {v_cor}; font-size: 12px;">m/s</p>
                         </div>
@@ -116,7 +116,7 @@ if 'vop' in all_models:
                         
                         st.markdown(f"""
                             <div style="background-color: {s_bg}; padding: 20px; border-radius: 10px; border: 2px solid {s_cor}; text-align: center;">
-                                <h4 style="color: {s_cor}; margin: 0;">SAGE Estimado</h4>
+                                <h4 style="color: {s_cor}; margin: 0;">eSAGE</h4>
                                 <h1 style="color: {s_cor}; margin: 10px 0;">{pred_sage:.2f}</h1>
                                 <p style="color: {s_cor}; font-size: 12px;">Escore Preditivo</p>
                             </div>
