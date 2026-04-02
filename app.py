@@ -55,7 +55,7 @@ with st.sidebar:
 
 # --- 5. Área Principal ---
 st.markdown("<h1 class='big-title'>Análise Cardiovascular Preditiva</h1>", unsafe_allow_html=True)
-st.markdown("<p style='text-align: center; color: #6C757D; margin-bottom: 30px;'>Insira os dados clínicos para calcular as estimativas simultâneas.</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; color: #6C757D; margin-bottom: 30px;'>Insira os dados clínicos para calcular as estimativas.</p>", unsafe_allow_html=True)
 
 # Usamos as features do modelo VOP como base (já que são as mesmas)
 if 'vop' in all_models:
